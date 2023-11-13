@@ -1,0 +1,73 @@
+<app-header></app-header>
+<div class="container">
+    <h3>Lista de Roles</h3>
+    <br />
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <!-- Botón -->
+        <button type="button" class="btn btn-primary" (click)="usersDashboard()">Ver Listado Usuarios</button>
+
+        <!-- Barra de búsqueda centrada -->
+        <div class="d-flex align-items-center">
+            <div class="input-group rounded">
+            <input
+                type="search"
+                class="form-control rounded"
+                placeholder="Search"
+                aria-label="Search"
+                aria-describedby="search-addon"
+                [(ngModel)]="searchTerm"
+                (input)="onSearch()"
+            />
+            <span class="input-group-text border-0" id="search-addon">
+                <i class="fas fa-search"></i>
+            </span>
+            </div>
+        </div>
+
+        <nav aria-label="...">
+
+                <!--
+                TO FILTER BY RESULTS PER PAGE
+                    <label for="resultsPerPage">Resultados por página:</label>
+                <select id="resultsPerPage" [(ngModel)]="resultsPerPage" (change)="cambiarResultadosPorPagina()">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                </select>-->
+
+                <ul class="pagination">
+                <li class="page-item">
+                <a class="page-link" href="#" (click)="pageNumber > 1 ? cambiarNumero(pageNumber - 1, $event) : null"><</a>
+                </li>
+                <li class="page-item" [class.active]="pageNumber === 1">
+                <a class="page-link" href="#" (click)="cambiarNumero(1, $event)">{{ pageNumber }}</a>
+                </li>
+                <!-- TODO: fix the limit:Otras páginas aquí -->
+                <li class="page-item">
+                <a class="page-link" href="#" (click)="cambiarNumero(pageNumber + 1, $event)">></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">NOMBRE</th>
+                <th scope="col">DESCRIPCION</th>
+                <th scope="col">ESTADO</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let rol of filteredRoles">
+                <th scope="row">{{ rol.rol_name }}</th> <!-- Corregido: rol_name en lugar de user.first_name -->
+                <td>{{ rol.description }}</td>
+                <td>{{ rol.rol_status ? 'Activo' : 'Inactivo' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<app-footer></app-footer>

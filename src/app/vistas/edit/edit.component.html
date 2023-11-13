@@ -1,0 +1,63 @@
+<app-header></app-header>
+
+    <div class="container">
+
+        <form [formGroup]="editarForm" (ngSubmit)="postForm()">
+          <div class="form-group row">
+            <div class="col">
+              <img [src]="editarForm.value.user_image" alt="Imagen Usuario" style="width: 120px; height: 150px;">
+            </div>
+            <div class="col">
+              <label for="exampleFormControllInput1">Nombre</label>
+              <input type="text" class="form-control" placeholder="Nombre del Usuario" formControlName = "first_name">
+            </div>
+            <div class="col">
+              <label for="exampleFormControllInput1">Apellido</label>
+              <input type="text" class="form-control" placeholder="Apellido del Usuario" formControlName = "last_name">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col">
+              <label for="exampleFormControllInput1">Tipo de Documento</label>
+              <input type="text" class="form-control" placeholder="Tipo de Documento" formControlName = "type_document">
+            </div>
+            <div class="col">
+              <label for="exampleFormControllInput1">Numero de Documento</label>
+              <input type="text" class="form-control" placeholder="Numero de Documento" formControlName = "document">
+            </div>
+            <div class="col">
+              <label for="exampleFormControllInput1">Fecha de Cumpleaños</label>
+              <input type="text" class="form-control" placeholder="Fecha de Cumpleaños" formControlName = "birthday">
+            </div>
+            <div class="col">
+              <label for="exampleFormControllInput1">Numero de Telefono</label>
+              <input type="text" class="form-control" placeholder="Numero de Telefono" formControlName = "phone_number">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col">
+              <label for="exampleFormControllInput1">ESTADO</label>
+              <input type="text" class="form-control" placeholder="ESTADO" formControlName = "is_active">
+            </div>
+            <div class="col">
+              <label for="exampleFormControllInput1">Fecha de registro</label>
+              <input type="text" class="form-control" placeholder="Fecha de registro" formControlName = "register_date">
+            </div>
+            <div class="col">
+              <label for="exampleFormControllInput1">Direccion</label>
+              <input type="text" class="form-control" placeholder="Direccion" formControlName = "address">
+            </div>
+            <div class="col">
+              <label for="exampleFormControllInput1">Rol</label>
+              <input type="text" class="form-control" placeholder="Rol" formControlName = "role">
+            </div>
+          </div>
+          <br><br>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+
+    </div>
+
+<app-footer></app-footer>
